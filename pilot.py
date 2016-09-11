@@ -123,6 +123,10 @@ if sentient == "1":
                 print "You trip over a rock and the syringes already sticking out of your body"
                 print "stab deeper into a bunch of organs you needed to survive."
                 print "Which means you didn't. Survive, that is. "
+#added an "else" for the drifter track
+        else:
+            print "You literally die from indecision."
+            print "You're so bad at making decisions you contract AIDS...from yourself."
 
 
 
