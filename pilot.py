@@ -105,6 +105,9 @@ if sentient == "1":
 
                     elif cat == "chupacabra.":
                         print "He kills you."
+                        #added an else so shitposters can choose anything they want and get a reasonable response
+                    else:
+                        print "He strangles you with your own shitty life choices."
 
 
             elif defibrillator == "disarm":
