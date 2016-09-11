@@ -44,7 +44,7 @@ if sentient == "1":
             print "this coat is fastened from syringes."
             print "Really dirty syringes."
 
-        if drifter == "nope":
+        elif drifter == "nope":
             print "He figures, what the hell, let's fight then."
             print "He shouts something that sounds vaguely Yiddish while rushing you."
             print "As he tackles you to the ground you feel the sharp throbbing pain of a thousand needles."
