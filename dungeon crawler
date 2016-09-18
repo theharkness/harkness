@@ -1,0 +1,313 @@
+import random
+from sys import exit
+
+hit_points = 0
+gold_coins = 0
+
+def death():
+    print "\"You fought hard, adventurer, but ya done!\""
+    print "The words \"ya done\" echo through the entranceway"
+    print "And then Olaf sweeps you up and tosses you in the dumpster out back."
+    exit(0)
+
+def win():
+    print "You have won, brave adventurer!"
+    print "\"Enjoy your new spooky mansion. I am forever your janitor!\""
+    print "Olaf takes a knee and pledges fealty to you eternally."
+    exit(0)
+
+def dying():
+    global hit_points
+    hit_points = hit_points + 1
+    if hit_points == 1:
+        print "\"You've taken a pretty serious beating, buddy,\", Olaf tells you."
+        print "As if that wasn't really fucking obvious from the entrails sliding out of your gut."
+        print "You have lost %d hit point" % hit_points
+        olaf()
+    if hit_points == 2 or 3:
+        print "\"You've taken a pretty serious beating, buddy,\", Olaf tells you."
+        print "As if that wasn't really fucking obvious from the entrails sliding out of your gut."
+        print "You have lost %d hit points" % hit_points
+    if hit_points is 4:
+        death()
+    else:
+        olaf()
+
+def victory():
+    global gold_coins
+    gold_coins = gold_coins + 1
+    if gold_coins is 1:
+        print "You now have %d coin" % gold_coins
+        print "\"Nice pay dirt, kid,\", Olaf tells you."
+        print "Looks like he's vying for a raise.\""
+        olaf()
+
+    elif gold_coins >= 4:
+        win()
+    else:
+        print "You now have %d coins" % gold_coins
+        print "\"Nice pay dirt, kid,\", Olaf tells you."
+        print "Looks like he's vying for a raise.\""
+        olaf()
+
+
+def olaf():
+    print "\"Ready for another room, sonny?\""
+    print "\"Just say yes and I'll fling ya\""
+
+    olafvar = raw_input(">>>")
+
+    if "yes" in olafvar:
+        roll2 = random.randint(1,4)
+        if roll2 is 1:
+            room_1()
+        if roll2 is 2:
+            room_2()
+        if roll2 is 3:
+            room_3()
+        if roll2 is 4:
+            room_4()
+    else:
+        print "No clue what you're saying."
+        olaf()
+
+def room_1():
+    print "You're fighting a chupacabra!"
+    print "It's half goat, half dog, AND half alpaca!"
+    print "It spits at you!"
+    print "I know I'm using a lot of exclamation points but Jesus this thing is scary!"
+    print "You reach into your bag and find your chupacabra hunting knife."
+    print "It's a bit rusty, sure, but what better tool for the fight."
+    print "Stab or slice. Choose wisely."
+
+    chupacabra = raw_input(">>>")
+
+    if "stab" in chupacabra:
+        roll3 = random.randint(1,3)
+        if roll3 is 1:
+            print "You always knew stabbing a chupacabra was the way to his heart."
+            print "You carve him up into bite sized pieces."
+            victory()
+        else:
+            print "You lunge for his eye and then realize he's already feasting on your intestines."
+            print "He yawns slowly while chewing through a part of your pancreas."
+            dying()
+
+    elif "slice" in chupacabra:
+        roll4 = random.randint(1,2)
+        if roll4 is 1:
+            print "You always knew slicing a chupacabra was the way to spill his organs all over the floor."
+            print "You wonder if Olaf ever gets a chance to clean up chupacabra entrails,"
+            print "between instructing adventurers and all that"
+            victory()
+
+        if roll4 is 2:
+            print "He pounces. Chupacabras do that apparently."
+            print "You try to parry with your chupacabra hunting knife but realize that everything"
+            print "you know about parrying you learned from watching The Count of Monte Cristo"
+            print "and the real thing is totally different."
+            dying()
+
+    else:
+        print "Don't understand ya, buddy. Try \"stab\" or \"slice\"."
+        room_1()
+
+def room_2():
+    print "You're fighting a spooky as shit ghost."
+    print "He floats around you, at that slightly slow speed ghosts are taken to moving at."
+    print "You reach for your backpack vacuum ghostbuster ripoff ghost killing apparatus"
+    print "The ghost hurls a candelabra at you!"
+    print "You can dodge or you can just attack the ghost immediately, accepting that you might get smacked in the head."
+
+    ghost = raw_input(">>>")
+
+    if "dodge" in ghost:
+        roll5 = random.randint(1,2)
+        if roll5 is 1:
+            print "You duck! You survive the first candelabra but you're no closer to killing this infernal being."
+            room_2()
+        else:
+            print "You just aren't quick enough. The candelabra stabs you in the eyes. And also the kidney."
+            dying()
+    elif "attack" in ghost:
+        roll6 = random.randint(1,2)
+        if roll6 is 1:
+            print "You suck the ghost into your vacuum."
+            print "You hear him muttering about The War of 1812 from inside the bag."
+            victory()
+        else:
+            print "Seemed like a good idea in the heat of the moment."
+            print "But in the cool of the ghost sucking your brains out, it seems pretty stupid..."
+            dying()
+    else:
+        print "I don't understand your command. Choose attack or dodge."
+        room_2()
+
+def room_3():
+    print "Welcome to the Abyss!"
+    print "You look around and realize it's a one eyed troll doing the talking."
+    print "\"You seemed way scarier when I couldn't see you,\" you tell him."
+    print "He lunges at you with his slobbery pinewood bat."
+    print "You can karate chop him, kick him in the shins, or put him in a headlock. Totally up to you."
+
+    troll = raw_input(">>>")
+
+    if "karate" in troll or "chop" in troll:
+        roll7 = random.randint(1,3)
+        if roll7 is 1:
+            print "You do something straight out of the Mighty Morphin' Power Rangers"
+            print "and he does something straight out of a Sylvia Plath novel."
+            print "...as in he drops dead. If that wasn't obvious."
+            victory()
+        else:
+            print "You go to punch him in the face but you realize what you thought was his face..."
+            print "WAS ACTUALLY A BAT...that smacks you in the face. Really hard."
+            dying()
+
+    if "kick" in troll or "shins" in troll:
+        roll8 = random.randint(1,3)
+        if roll8 is 1:
+            print "You kick him super hard in the shin!"
+            print "He buckles over crying like a five year old at soccer practice."
+            print "You lift a gold coin off his bitch ass."
+            victory()
+        else:
+            print "You go to kick him and TOO SLOW he cracks his bat over your head."
+            dying()
+
+    if "headlock" in troll:
+        print "As if headlocks ever fail."
+        print "He cries, \"uncle!\" and gives you a gold coin without even being asked."
+        victory()
+
+    else:
+        print "What are you even saying? Try \"kick\", \"karate\", or \"headlock\"."
+
+def room_4():
+    print "Welcome to the dreaded room 4"
+    print "In the middle of the room is a doppelganger"
+    print "It's a doppelganger of Olaf, no less"
+    print "and it's listening to a chief keef mixtape"
+    print "try not to cringe from the pun..."
+    print "but it really is a doppelgangbanger"
+    print "Anyway, it reaches for its Mac 10"
+    print "you can shoot back with the Mac 10 you handily keep on your person"
+    print "or you can try to talk some sense to the doppelgangbanger"
+
+    doppelganger = raw_input(">>>")
+
+    if "shoot" or "Mac" or "mac" or "10" or "ten" in doppelganger:
+        roll9 = random.randint(1,2)
+        if roll9 is 1:
+            print "you shoot him in his ugly face."
+            victory()
+        if roll9 is 2:
+            print "like Han Solo in the original release, he shoots first"
+            dying()
+    elif "talk" in doppelganger or "negotiate" in doppelganger:
+        roll10 = random.randint(1,3)
+        if roll10 is 1:
+            print "you actually (some fucking how) convince him to give you a gold coin without violence"
+            victory()
+        else:
+            print "Ha. like that shit would ever work."
+            dying()
+    else:
+        print "I don't understand you. Try \"shoot\" or \"talk\""
+        room_4()
+
+def room_5():
+    print "Olaf flings you into the closet."
+    print "You stand up slowly, regaining your balance"
+    print "As you're about to shout at Olaf about being totally incompetent at throwing you into rooms"
+    print "You see Herr Doktor"
+    print "Shit. A wicked German doctor trope, you mutter."
+    print "He of course immediately starts yodeling an ear piercing melody."
+    print "You can cover your ears or immediately put the Wagner album in the corner on to try and assuage his yodeling desires."
+
+    german = raw_input(">>>")
+
+    if "cover" in german or "ears" in german:
+        roll11 is random.randint(1,3)
+        if roll11 is 1:
+            print "You successfully covered your ears. But he ain't gonna stop yodelling any time soon."
+            room_5()
+        if roll11 is 2 or 3:
+            print "The yodeling is not just ear piercing, but also hand piercing, as it easily slithers past your fingers"
+            print "and straight into your brain."
+            dying()
+
+    if "Wagner" in german or "wagner in german" or "album" in german:
+        print "Wagner never fails to calm a German doctor trope, especially in a text based RPG"
+        victory()
+
+    else:
+        print "I don't know what you're saying."
+        room_5()
+
+def room_6():
+    print "You pick yourself up off the dingy floor"
+    print "Where the hell did Olaf through you this time?"
+    print "You look around and see a washer and dryer?"
+    print "Does this dungeon seriously have a laundry room?"
+    print "you look around and realize there's a gold coin just laying on the floor"
+    print "practically asking to be stolen by an adventurer"
+    print "You can either pick up the coin or decide its a trap and instead attack the wall with your forehead"
+
+    forehead = raw_input(">>>")
+
+    if "coin" in forehead or "pick" in forehead:
+        print "free coin. can't complain about that, can you?"
+        victory()
+    elif "trap" in forehead or "forehead" in forehead or "attack" in forehead:
+        print "in hindsight that seemed pretty dumb"
+        dying()
+
+
+
+
+
+def entrance():
+    print "You wake up. You smell like vomit and Dr. Pepper. An all around terrible combination."
+    print "You brush off the leaves and dirt and look around."
+    print "You're in the entrance to a building."
+    print "It smells like mothballs."
+    print "You reach to your nose to cover it and realize that there is actually a mothball jammed in your nose somehow"
+    print "Upon pulling it out, you realize the room actually smells like pepto bismol and diarrhea."
+    print "You stuff the mothball back in your nose, 'cause it was better than this shit."
+    print "Entering stage left is Olaf, the janitor."
+    print "\"Fuck you doing in my entrance, boy?\" He asks, while polishing a vanity license plate reading 3AT M3"
+    print "\"I have no idea where I came from.\""
+    print "\"I'm one of those adventurers with amnesia that are always popping up in cliche text-based RPGs\""
+    print "\"Goddamnit, another one? All right then, guess you need some stale rules for dungeon looting, don't you?\""
+    print "\"Those would be great sir\", you reply."
+    print "\"Here's the deal, sonny. You have four hit points. Lose those and ya done.\""
+    print "\"Score four gold coins and you can have this spooky ass mansion. I will work for you on retainer,\""
+    print "\"I do odd jobs. You know, polishing vanity license plates, instructing amnesiac adventurers on how to plunder your basement\""
+    print "\"err dungeon. Did I say basement? 'Cause I meant dungeon.\""
+    print "\" Oh and one more thing. You have no choice but to randomly be flung into various rooms by me.\""
+    print "\"Kill the monsters. Get the coins.\""
+    print "Just say \"adventure\" and I'll fling ya into a room."
+
+    adventure = raw_input(">>>")
+
+    if "adventure" in adventure:
+        roll1 = random.randint(1,6)
+        if roll1 is 1:
+            room_1()
+        elif roll1 is 2:
+            room_2()
+        elif roll1 is 3:
+            room_3()
+        elif roll1 is 4:
+            room_4()
+        elif roll1 is 5:
+            room_5()
+        elif roll1 is 6:
+            room_6()
+    else:
+        print "Olaf the janitor can't make out your foreign language."
+        print "He implores you to simply type \"adventure\" to move on."
+        entrance()
+#_____main______
+entrance()
