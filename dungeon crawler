@@ -196,7 +196,8 @@ def room_4():
 
     doppelganger = raw_input(">>>")
 
-    if "shoot" or "Mac" or "mac" or "10" or "ten" in doppelganger:
+    #changed syntax from "shoot" or "Mac" to "shoot" in doppelganger or "Mac" in doppelganger because it wasn't offering elif "talk"
+    if "shoot" in doppelganger or "Mac" in doppelganger or "mac" in doppelganger or "10" in doppelganger or "ten" in doppelganger:
         roll9 = random.randint(1,2)
         if roll9 is 1:
             print "you shoot him in his ugly face."
